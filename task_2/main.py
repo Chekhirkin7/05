@@ -2,7 +2,7 @@ import re
 from typing import Callable, Generator
 
 def generator_numbers(text: str) -> Generator[float]:
-	pattern = r'\d+.\d+' #Патерн для пошуку чисел в рядку типу "число.число" + ігнорування на спеціальні символи
+	pattern = r'\s(\d+.\d+)\s' #Патерн для пошуку чисел в рядку типу "число.число" + ігнорування на спеціальні символи
 	for match in re.findall(pattern, text): #Перебираємо по одному значенню за раз, щоб програма працювала швидше
 		yield float(match) #Повернення одного значення з циклу та збереження його, оскільки це генератор
 
